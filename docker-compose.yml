@@ -1,6 +1,12 @@
 version: '3.8'
 
 services:
+  web:
+    build: ./nginx
+    container_name: web
+    restart: always
+    ports:
+      - 80:80
   bd:
     build: ./base
     container_name: bd
@@ -19,4 +25,4 @@ services:
     container_name: adminer
     restart: always
     ports:
-      - 8080:8080
+      - 9000:9000
