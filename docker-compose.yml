@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  bd:
+    build: ./base
+    container_name: bd
+    restart: always
+    environment:
+      POSTGRES_DB: root
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    volumes:
+      - ./.databases/docker-postgres-init.sql:/docker-entrypoint-initdb.d/docker-postgres-init.sql
+    ports:
+      - 5432:5432
+
+  adminer:
+    build: ./adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - 8080:8080
