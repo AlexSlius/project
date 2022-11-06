@@ -19,7 +19,11 @@ services:
       - ./.databases/docker-postgres-init.sql:/docker-entrypoint-initdb.d/docker-postgres-init.sql
     ports:
       - 5432:5432
-
+  api:
+    build: ./api
+    container_name: api
+    ports:
+      - 4000
   adminer:
     build: ./adminer
     container_name: adminer
