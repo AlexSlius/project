@@ -7,8 +7,6 @@ services:
     restart: always
     ports:
       - 80:80
-    networks:
-      - frontend
   bd:
     build: ./base
     container_name: bd
@@ -32,5 +30,6 @@ services:
       - 9000:9000
 
 networks:
-  frontend:
-    name: my_network
+  default:
+    external:
+      name: my_network
